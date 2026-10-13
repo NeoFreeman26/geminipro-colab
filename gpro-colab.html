@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Colab Pro 方案升級與 GPU 記憶體權益說明</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #1a73e8;
+            border-bottom: 2px solid #1a73e8;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #202124;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #1e8e3e;
+        }
+        .highlight {
+            background-color: #e8f0fe;
+            border-left: 4px solid #1a73e8;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 4px 4px 0;
+        }
+        .highlight p {
+            margin: 0;
+        }
+        .warning {
+            background-color: #fce8e6;
+            border-left: 4px solid #d93025;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 4px 4px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dadce0;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+            color: #202124;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .note {
+            font-size: 0.9em;
+            color: #5f6368;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Google Colab 方案升級與 GPU 權益說明</h1>
+
+    <div class="highlight">
+        <p><strong>是的，您的 Colab 權益已經大幅升級了！</strong></p>
+        <p>Google 已將 Colab 進階版福利直接整合進 <strong>Google AI Pro</strong> 方案中。您<strong>不需要再額外付費訂閱 Colab Pro</strong>，就能直接在 Google Colab 中享受升級算力，最高可使用高達 <strong>80GB 的 GPU 顯示記憶體 (VRAM)</strong>。</p>
+    </div>
+
+    <h2>💻 升級權益亮點</h2>
+    <ul>
+        <li><strong>每月 200 個 Colab 運算單元</strong>：系統每個月會自動發放配額，供您靈活調度運算資源。</li>
+        <li><strong>優先使用高規格環境</strong>：享有比免費版更快的連線速度、更高的系統記憶體（High-RAM）配置以及更長的反後台執行時間。</li>
+        <li><strong>支援 Colab CLI（命令列工具）</strong>：可以直接從本機終端機呼叫雲端的 GPU/TPU 資源。</li>
+    </ul>
+
+    <h2>📊 GPU 規格與顯示記憶體 (VRAM) 對照表</h2>
+    <p>實際能拿到多少記憶體，取決於您在執行階段中選擇的 GPU 型號：</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>GPU 型號</th>
+                <th>顯示記憶體 (VRAM)</th>
+                <th>適用場景與消耗速度</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>NVIDIA A100</strong></td>
+                <td><strong>80 GB</strong></td>
+                <td><strong>最頂級配置</strong>。適合不壓縮直接跑 310 億參數的大型模型（如 Gemma 4 31B），或執行完整微調（Full Fine-tuning）與 LoRA 訓練。<i>（運算單元消耗極快，每小時約扣 13~15 單位）</i></td>
+            </tr>
+            <tr>
+                <td><strong>NVIDIA L4</strong></td>
+                <td><strong>24 GB</strong></td>
+                <td><strong>中階萬用配置</strong>。適合中小規模模型的推論、中等 batch size 的影像處理，是兼顧效能與節省單元的好選擇。</td>
+            </tr>
+            <tr>
+                <td><strong>NVIDIA T4</strong></td>
+                <td><strong>16 GB</strong></td>
+                <td><strong>基本配置</strong>。適合基礎的機器學習模型（如隨機森林、XGBoost）或小型深度學習模型架喚訓練。<i>（最節省運算單元）</i></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>💡 補充：系統記憶體 (RAM) 的差別</h3>
+    <p>除了 GPU 的 VRAM 外，當您配置 L4 或 A100 GPU 時，系統通常會同步分配 <strong>50 GB 到 80 GB 以上的 High-RAM（高容量系統記憶體）</strong> 供您加載大型數據集（免費版通常只有約 12.7 GB）。</p>
+
+    <div class="warning">
+        <p><strong>⚠️ 使用小提醒</strong></p>
+        <ul>
+            <li><strong>注意閒置消耗</strong>：執行完程式後，務必<strong>手動停止 Runtime（執行階段）</strong>。如果放著閒置，系統仍會持續扣除您的運算單元配額。</li>
+            <li><strong>動態調度機制</strong>：雖然您有權限開啟 A100，但若遇到雲端機房資源尖峰時段，系統仍可能會建議您先改用 L4 或 T4。</li>
+        </ul>
+    </div>
+
+</body>
+</html>
+
